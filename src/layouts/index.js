@@ -1,12 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router";
 
+import Navbar from "../components/molecules/navbar";
 import styles from "./layout.module.scss";
 
 function Layout() {
   return (
     <main className={styles.container}>
       {/* Header */}
+      <Navbar />
 
       {/* Outlet */}
       <Outlet />

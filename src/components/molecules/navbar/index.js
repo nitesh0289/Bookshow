@@ -1,11 +1,28 @@
+import { Icon } from "@iconify/react";
 import React from "react";
 
+import BrandLogo from "../../../assets/logo.png";
 import styles from "./navbar.module.scss";
+import Button from "../../atoms/Button";
 
 function Navbar() {
+  const handleLogin = () => {
+    console.log("Login Clicked");
+  };
+
   return (
-    <article>
-      <h1>Navbar</h1>
+    <article className={styles.navbar}>
+      {/* Left */}
+      <img src={BrandLogo} alt="BookShow" />
+
+      {/* Middle */}
+      <nav></nav>
+
+      {/* Right */}
+      <div className={styles.right}>
+        <Icon icon={"ic:outline-search"} />
+        <Button text="Log In" clickHandler={handleLogin} />
+      </div>
     </article>
   );
 }

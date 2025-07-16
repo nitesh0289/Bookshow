@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  height: 65px;
+  padding: 0px 40px;
+  align-items: center;
+  border: 1px solid blue;
+  justify-content: space-between;
+
+  > img {
+    width: auto;
+    height: 25px;
+  }
+
+  .right {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+    > svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
