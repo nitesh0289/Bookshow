@@ -1,9 +1,11 @@
 .navbar {
   display: flex;
   height: 80px;
+  top: 0px;
   padding: 0px 40px;
+  position: absolute;
   align-items: center;
-  border: 1px solid blue;
+  width: calc(100% - 80px);
   justify-content: space-between;
 
   > img {
