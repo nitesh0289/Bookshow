@@ -1,0 +1,73 @@
+.footer {
+  display: grid;
+  width: auto;
+  bottom: 0px;
+  padding: 10px 30px;
+  position: absolute;
+  grid-template-rows: auto 50px;
+
+  .top {
+    display: grid;
+    gap: 15px;
+    width: 100%;
+    padding: 15px 0;
+    grid-template-columns: 2fr 0.8fr 0.8fr;
+
+    > .column1 {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+      flex-direction: column;
+      > .footer-logo {
+        > img {
+          width: auto;
+          height: 30px;
+        }
+      }
+
+      > p {
+        width: 70%;
+        color: var(--grey);
+      }
+
+      .app-install {
+        display: flex;
+        gap: 15px;
+        > img {
+          height: 45px;
+        }
+      }
+    }
+
+    > .column2 {
+      display: flex;
+      margin: 0 auto;
+      gap: 15px;
+      flex-direction: column;
+
+      > h3 {
+        font-size: var(--fs-lg);
+      }
+
+      > div {
+        display: grid;
+        gap: 10px;
+
+        > a {
+          color: var(--grey);
+          font-size: var(--fs-md);
+        }
+      }
+    }
+  }
+
+  .subFooter {
+    display: flex;
+    height: 100%;
+    color: var(--grey);
+    align-items: center;
+    font-size: var(--fs-md);
+    justify-content: center;
+    border-top: 1px solid var(--grey);
+  }
+}

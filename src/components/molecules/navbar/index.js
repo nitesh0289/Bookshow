@@ -16,7 +16,12 @@ function Navbar() {
       <img src={BrandLogo} alt="BookShow" />
 
       {/* Middle */}
-      <nav></nav>
+      <nav className={styles.nav}>
+        <a>Home</a>
+        <a>Movies</a>
+        <a>Theaters</a>
+        <a>Releases</a>
+      </nav>
 
       {/* Right */}
       <div className={styles.right}>

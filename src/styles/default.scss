@@ -16,7 +16,7 @@ body {
   padding: 0px;
   margin: 0px;
   overflow: hidden auto;
-  background-color: var(--black);
+  background-color: var(--primary);
 }
 
 h1,
@@ -27,4 +27,8 @@ h5,
 h6 {
   overflow: hidden;
   text-transform: none;
+}
+
+a {
+  cursor: pointer;
 }
