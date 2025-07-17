@@ -1,7 +1,8 @@
 .container {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  overflow: auto;
   position: relative;
   flex-direction: column;
   border: 1px solid green;

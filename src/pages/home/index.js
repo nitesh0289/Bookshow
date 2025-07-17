@@ -1,11 +1,16 @@
 import React from "react";
 
+import Trailers from "./sections/trailers";
 import styles from "./home.module.scss";
+import Movies from "./sections/movies";
+import Hero from "./sections/hero";
 
 function Home() {
   return (
     <main className={styles.container}>
-      <h1>BookShow Home Page</h1>
+      <Hero />
+      <Movies />
+      <Trailers />
     </main>
   );
 }
