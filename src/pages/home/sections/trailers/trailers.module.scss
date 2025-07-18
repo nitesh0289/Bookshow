@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 5% 20%;
+  flex-direction: column;
+
+  > header {
+    > h2 {
+      font-size: var(--fs-lg);
+    }
+  }
+
+  .trailers {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    .videoPlayer {
+      aspect-ratio: 16/7;
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    ul {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+
+      > li {
+        display: flex;
+        width: 150px;
+        aspect-ratio: 16/9;
+        background-color: var(--grey);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+}
