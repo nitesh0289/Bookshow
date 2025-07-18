@@ -9,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Pages.Home />} />
+        <Route path="/:id" element={<Pages.MovieDetails />} />
       </Route>
     </Routes>
   );

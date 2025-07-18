@@ -29,9 +29,20 @@
       > li {
         display: flex;
         width: 150px;
+        cursor: pointer;
+        position: relative;
         aspect-ratio: 16/9;
         background-color: var(--grey);
         border-radius: var(--border-radius);
+
+        > svg {
+          top: 50%;
+          left: 50%;
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
       }
     }
   }

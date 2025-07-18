@@ -1,11 +1,14 @@
+import { useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
 import React from "react";
 
+import Card from "../../../../components/molecules/card";
 import movies from "../../../../data/movies.json";
 import styles from "./movies.module.scss";
-import Card from "../../../../components/molecules/card";
 
 function Movies() {
+  const navigate = useNavigate();
+
   return (
     <section className={styles.container}>
       <header>
@@ -15,8 +18,8 @@ function Movies() {
         </span>
       </header>
       <div className={styles.movies}>
-        {movies.map((movies, i) => {
-          return <Card {...movies} key={movies.id} />;
+        {movies.map((movie, i) => {
+          return <Card {...movie} key={movie.id} clickHandler={() => navigate(`/${movie.id}`)} />;
         })}
       </div>
     </section>

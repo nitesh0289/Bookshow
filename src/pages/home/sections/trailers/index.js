@@ -1,9 +1,12 @@
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import React from "react";
+import { Icon } from "@iconify/react";
 
+import trailers from "../../../../data/trailers.json";
 import styles from "./trailers.module.scss";
 
 function Trailers() {
+  const [currentSrc, setCurrentSrc] = useState(trailers[0].src);
   return (
     <section className={styles.container}>
       <header>
@@ -11,16 +14,17 @@ function Trailers() {
       </header>
       <div className={styles.trailers}>
         {/* Player */}
-        <ReactPlayer
-          src="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-          className={styles.videoPlayer}
-        />
+        <ReactPlayer src={currentSrc} className={styles.videoPlayer} />
         {/* Content Menu */}
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          {trailers.map((trailer) => {
+            return (
+              <li key={trailer.id} onClick={() => setCurrentSrc(trailer.src)}>
+                <img src={trailer.image} alt={trailer.alt} width={150} />
+                <Icon icon={"icon-park-twotone:play"} />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
