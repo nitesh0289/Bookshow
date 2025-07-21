@@ -1,8 +1,23 @@
-//Seats.js
+//Heading
+.header {
+  display: flex;
+  margin-bottom: 50px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  > h1 {
+    font-size: var(--fs-3xl);
+  }
+  > img {
+    width: 50%;
+  }
+}
 
+//Seats.js
 .seatsWrapper {
   display: flex;
   gap: 15px;
+  width: 100%;
   align-items: center;
   flex-direction: column;
 
@@ -15,25 +30,87 @@
       color: var(--grey);
     }
 
-    > div {
+    > .cell {
       display: flex;
       gap: 10px;
-      > td {
-        display: flex;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        border: 1px solid var(--red);
 
-        &.selected {
-          background-color: var(--red);
+      > div {
+        text-align: center;
+
+        > span {
+          display: block;
+          margin-top: 5px;
+          color: var(--grey);
         }
 
-        &.alreadyFilled {
-          opacity: 0.5;
-          cursor: not-allowed;
-          background-color: var(--red);
+        .space {
+          display: flex;
+          width: 60px;
         }
+        > td {
+          display: flex;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          border: 1px solid var(--red);
+
+          &.selected {
+            background-color: var(--red);
+          }
+
+          &.alreadyFilled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: var(--red);
+          }
+        }
+      }
+    }
+  }
+}
+
+//TimeSlot
+.timeSlot {
+  display: flex;
+  width: 100%;
+  gap: 25px;
+  padding: 10px 0;
+  text-align: center;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  background-color: rgb(218, 35, 67, 0.2);
+
+  > h3 {
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-medium);
+  }
+
+  > ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    > li {
+      display: flex;
+      gap: 10px;
+      width: 100px;
+      cursor: pointer;
+      padding: 8px 15px;
+      align-items: center;
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      > p {
+        font-size: var(--fs-xl);
+      }
+
+      &.active {
+        background-color: var(--red);
       }
     }
   }

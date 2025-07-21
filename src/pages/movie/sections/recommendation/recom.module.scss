@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 3% 10%;
+  flex-direction: column;
+
+  > header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    > h2 {
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-medium);
+    }
+
+    > span {
+      display: flex;
+      gap: 5px;
+      color: var(--grey);
+      align-items: center;
+
+      > svg {
+        width: 20px;
+      }
+    }
+  }
+
+  > ul {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  > .showMoreBtn {
+    width: auto;
+    margin: 0 auto;
+    padding: 0 30px;
+    margin-top: 40px;
+    border-radius: var(--border-radius);
+  }
+}

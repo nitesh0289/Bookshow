@@ -1,7 +1,7 @@
 .container {
   display: flex;
   gap: 20px;
-  padding: 0 40px;
+  padding: 0 5%;
   flex-direction: column;
 
   > header {
@@ -10,7 +10,7 @@
     justify-content: space-between;
 
     h2 {
-      font-size: var(--fs-xl);
+      font-size: var(--fs-2xl);
     }
 
     span {

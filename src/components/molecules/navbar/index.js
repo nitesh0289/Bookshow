@@ -12,9 +12,7 @@ function Navbar() {
 
   const handleStyle = () => {
     const navbar = document.getElementById("navbar");
-    console.log(navbar);
     if (!navbar) return;
-    console.log(window.scrollY);
     if (window.scrollY > 100) {
       navbar.style.backgroundColor = "var(--primary)";
     } else {
@@ -37,8 +35,8 @@ function Navbar() {
 
       {/* Middle */}
       <nav className={styles.nav}>
-        <a>Home</a>
-        <a>Movies</a>
+        <a href="/">Home</a>
+        <a href="#movies">Movies</a>
         <a>Theaters</a>
         <a>Releases</a>
       </nav>
