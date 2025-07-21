@@ -1,0 +1,40 @@
+//Seats.js
+
+.seatsWrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-direction: column;
+
+  .rows {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    > h3 {
+      color: var(--grey);
+    }
+
+    > div {
+      display: flex;
+      gap: 10px;
+      > td {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border: 1px solid var(--red);
+
+        &.selected {
+          background-color: var(--red);
+        }
+
+        &.alreadyFilled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          background-color: var(--red);
+        }
+      }
+    }
+  }
+}

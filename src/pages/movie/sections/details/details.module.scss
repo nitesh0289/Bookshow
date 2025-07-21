@@ -1,5 +1,89 @@
 .container {
   display: flex;
   height: 100vh;
+  padding: 0 10%;
+  gap: 50px;
+  flex-direction: column;
+  justify-content: center;
   border: 1px solid black;
+
+  > article {
+    display: flex;
+    gap: 1rem;
+
+    > img {
+      max-width: 300px;
+    }
+
+    figcaption {
+      display: flex;
+      flex-direction: column;
+
+      > .mainContent {
+        display: flex;
+        gap: 15px;
+        flex-direction: column;
+
+        > h3 {
+          color: var(--red);
+          font-size: var(--fs-xl);
+          font-weight: var(--fw-medium);
+        }
+
+        > h1 {
+          font-size: var(--fs-5xl);
+        }
+
+        > .rating {
+          > svg {
+            > path {
+              fill: var(--red);
+            }
+          }
+
+          > span {
+            font-size: var(--fs-md);
+          }
+        }
+
+        > p {
+          width: 80%;
+          color: var(--grey);
+          font-size: var(--fs-md);
+        }
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 1.5rem;
+
+        > button {
+          width: auto;
+          height: auto;
+          padding: 12px 22px;
+
+          &.trailer {
+            background-color: var(--secondary-dark);
+          }
+        }
+
+        .wishlist {
+          display: flex;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--secondary-dark);
+
+          > svg {
+            width: 25px;
+            height: 25px;
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
 }

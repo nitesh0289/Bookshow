@@ -10,6 +10,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Pages.Home />} />
         <Route path="/:id" element={<Pages.MovieDetails />} />
+        <Route path="/booking" element={<Pages.Booking />} />
       </Route>
     </Routes>
   );

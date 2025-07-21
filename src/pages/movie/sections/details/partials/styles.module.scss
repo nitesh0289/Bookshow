@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  > h3 {
+    margin-bottom: 1.5rem;
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-bold);
+  }
+
+  .grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    .card {
+      text-align: center;
+      width: 100px;
+      flex-shrink: 0;
+      .avatar {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #fff;
+      }
+
+      .name {
+        margin-top: 0.6rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .character {
+        font-size: 0.8rem;
+        color: #b3b3b3;
+      }
+    }
+  }
+}
