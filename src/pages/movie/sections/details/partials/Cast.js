@@ -32,7 +32,7 @@ const Cast = () => {
   const [castList, setCastList] = useState([]);
 
   useEffect(() => {
-    const num = Math.floor(Math.random() * 4) + 4; // between 4 and 10
+    const num = Math.floor(Math.random() * 4) + 4; // between 4 and 8
     const list = Array.from({ length: num }, (_, idx) => {
       const name = randomNames[idx % randomNames.length];
       return {

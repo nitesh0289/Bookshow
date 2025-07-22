@@ -10,7 +10,7 @@ function Card(props) {
   return (
     <article className={styles.container}>
       {/* IMG */}
-      <img src={CardImage} alt={"card-image"} width={300} height={300} />
+      <img src={image || CardImage} alt={"card-image"} width={300} height={300} />
 
       {/* Content */}
       <figcaption>

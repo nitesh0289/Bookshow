@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
 
 import Button from "../../../../components/atoms/Button";
@@ -7,6 +8,7 @@ import styles from "./booking.module.scss";
 function BookingDate() {
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const BOOKING_DATE_AVALIABLE = 15;
 
@@ -37,7 +39,7 @@ function BookingDate() {
   };
 
   const handleBooking = () => {
-    console.log("Booking");
+    navigate("/booking");
   };
 
   const handleDateSelect = (date) => {

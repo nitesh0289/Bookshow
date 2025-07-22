@@ -9,6 +9,7 @@
 
   > article {
     display: flex;
+    gap: 10px;
     height: 100vh;
     max-width: 40%;
     position: absolute;
@@ -26,7 +27,7 @@
     > .genre {
       display: flex;
       gap: 8px;
-      font-size: var(--fs-md);
+      font-size: var(--fs-lg);
       > span {
         display: flex;
         gap: 4px;
@@ -39,7 +40,7 @@
       width: 80%;
       margin-top: 20px;
       color: var((--grey));
-      font-size: var(--fs-md);
+      font-size: var(--fs-lg);
     }
 
     .explore-btn {
