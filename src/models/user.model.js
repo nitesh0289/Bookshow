@@ -3,18 +3,18 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true,
-    minlength: 5
+    required: [true, "Name is required"],
+    minlength: [5, "Name length is must be greater than or equal to 5"]
   },
   email: {
     type: String,
-    required: true,
-    unique: true
+    required: [true, "Email is required"],
+    unique: [true, "Email should be unique!"]
   },
   password: {
     type: String,
-    required: true,
-    minlength: 8
+    required: [true, "Password is required!"],
+    minlength: [8, "Password length is must be equal or greater than 8"]
   },
   age: {
     type: Number,
