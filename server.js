@@ -16,7 +16,7 @@ const userRouter = require("./src/routers/user.route");
 //Middlewares
 app.use(logMiddleware);
 
-app.use("/user", userRouter);
+app.use("/api/users", userRouter);
 // app.use("/movies", moviesRouter);
 // app.use("/bookings", bookingRouter);
 // app.use("/reviews", reviewsRouter);
