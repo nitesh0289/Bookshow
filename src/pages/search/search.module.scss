@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  gap: 30px;
+  height: 100vh;
+  padding: 0 10%;
+  padding-top: 5%;
+  flex-direction: column;
+
+  > h1 {
+    font-size: var(--fs-4xl);
+  }
+
+  > section {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    .empty {
+      display: flex;
+      word-spacing: 5px;
+      color: var(--grey);
+      justify-content: center;
+      font-size: var(--fs-6xl);
+      font-weight: var(--fw-bold);
+    }
+  }
+}

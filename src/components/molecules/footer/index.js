@@ -35,14 +35,11 @@ function Footer() {
           </div>
         </div>
         <div className={styles.column2}>
-          <h3>Company</h3>
+          <h3>Get in touch</h3>
 
           <div>
-            <a>Home</a>
-            <a>About us</a>
-            <a>Contact us</a>
-            <a>Privacy policy</a>
-            <a>Terms & Condition</a>
+            <a>+1-212-456-7890</a>
+            <a>contact@example.com</a>
           </div>
         </div>
       </div>

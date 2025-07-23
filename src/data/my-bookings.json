@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Alita Battle Angel 4k 2019 Movies ",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "bookingId": "2025ABC12D",
+    "date": "23 July 2025",
+    "seat": "C13",
+    "timeSlot": "18:30",
+    "bookingDate": "20 July 2025"
+  },
+  {
+    "id": 2,
+    "title": "Alita Battle Angel 4k 2019 Movies",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "bookingId": "2025ABC12E",
+    "date": "23 July 2025",
+    "seat": "C14",
+    "timeSlot": "18:30",
+    "bookingDate": "20 July 2025"
+  }
+]

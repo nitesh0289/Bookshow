@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  overflow: hidden;
+  min-height: 100vh;
+  background-color: var(--dark);
+
+  .leftSide {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+
+    &::after {
+      content: "";
+      inset: 0;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .overlay {
+      display: flex;
+      z-index: 1;
+      height: 100%;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        margin-bottom: 1rem;
+        font-size: var(--fs-5xl);
+        text-shadow: 2px 2px var(--red);
+      }
+
+      p {
+        max-width: 80%;
+        color: var(--red);
+        font-size: var(--fs-lg);
+        font-weight: var(--fw-medium);
+      }
+    }
+  }
+
+  .signupContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background: rgba(13, 13, 13, 0.85);
+
+    .signupForm {
+      width: 100%;
+      padding: 30px;
+      display: flex;
+      max-width: 50%;
+      border-radius: 16px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+
+      h2 {
+        margin-bottom: 1.8rem;
+        font-weight: var(--fw-medium);
+        font-size: var(--fs-3xl);
+      }
+
+      .inputGroup {
+        display: flex;
+        width: 80%;
+        margin-bottom: 16px;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 10px;
+          font-size: var(--fs-md);
+        }
+
+        input {
+          width: 100%;
+          margin: 0 auto;
+          padding: 15px;
+          border-radius: 10px;
+          font-size: var(--fs-md);
+          border: 1px solid var(--grey);
+          background-color: rgba(255, 255, 255, 0.07);
+        }
+      }
+
+      .toggle {
+        display: flex;
+        gap: 0.5rem;
+        width: 80%;
+        margin-bottom: 1rem;
+
+        input[type="checkbox"] {
+          cursor: pointer;
+          width: 16px;
+          height: 16px;
+        }
+
+        label {
+          font-size: var(--fs-md);
+          cursor: pointer;
+        }
+      }
+
+      > button {
+        width: 50%;
+        padding: var(--fs-md);
+      }
+
+      p {
+        margin-top: 1.5rem;
+        color: var(--grey);
+        font-size: var(--fs-md);
+
+        a {
+          color: #5b36ff;
+          font-weight: 500;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

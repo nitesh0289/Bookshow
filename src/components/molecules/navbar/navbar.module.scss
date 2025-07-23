@@ -42,9 +42,40 @@
     gap: 30px;
     align-items: center;
 
-    > svg {
-      width: 30px;
-      height: 30px;
+    .search {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      > .searchbar {
+        display: block;
+        outline: none;
+        padding: 10px;
+        border: none;
+        min-width: 250px;
+        position: absolute;
+        color: var(--black);
+        font-size: var(--fs-md);
+        transform: translateX(-100%);
+        border-radius: var(--border-radius);
+      }
+
+      .hideSearchbar {
+        display: none;
+      }
+
+      > svg {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        cursor: pointer;
+
+        &.active {
+          margin-left: -4px;
+          border-top-right-radius: 5px;
+          background-color: var(--grey);
+          border-bottom-right-radius: 5px;
+        }
+      }
     }
   }
 }

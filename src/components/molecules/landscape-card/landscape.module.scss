@@ -1,0 +1,88 @@
+.container {
+  display: grid;
+  gap: 15px;
+  width: 90%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: var(--dark);
+  grid-template-columns: 360px auto;
+
+  > img {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+  }
+
+  > .contents {
+    display: flex;
+    gap: 15px;
+    width: 95%;
+    height: auto;
+    padding: 15px 0px;
+    position: relative;
+    flex-direction: column;
+
+    > header {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      > h3 {
+        font-size: var(--fs-xl);
+        font-weight: var(--fw-medium);
+      }
+
+      > p {
+        color: var(--grey);
+      }
+    }
+
+    > p {
+      width: 80%;
+      color: var(--grey);
+    }
+
+    .extra {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+
+      > li {
+        color: var(--grey);
+        font-size: var(--fs-md);
+        > span {
+          color: var(--white);
+          font-weight: var(--fw-medium);
+        }
+      }
+    }
+
+    > .bottom {
+      display: flex;
+      margin-top: auto;
+      align-items: center;
+      justify-content: space-between;
+
+      > span {
+        display: flex;
+        gap: 5px;
+        color: var(--grey);
+        align-items: center;
+
+        > span {
+          color: var(--red);
+          font-weight: var(--fw-medium);
+        }
+
+        > svg {
+          width: 20px;
+          height: 20px;
+          > path {
+            fill: var(--red);
+          }
+        }
+      }
+    }
+  }
+}
