@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 
 import BrandLogo from "../../../assets/logo.png";
@@ -7,6 +8,7 @@ import styles from "./navbar.module.scss";
 import Button from "../../atoms/Button";
 
 function Navbar() {
+  const { user } = useSelector((state) => state.user);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef("");
 
@@ -75,7 +77,7 @@ function Navbar() {
             className={searchOpen ? styles.active : ""}
           />
         </div>
-        <Button text="Log In" clickHandler={handleLogin} />
+        <Button text={user.email ? "Log Out" : "Log In"} clickHandler={handleLogin} />
       </div>
     </article>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router";
+import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router";
 
 import Button from "../../components/atoms/Button";
 import MarvelBG from "../../assets/hero.png";
@@ -8,18 +9,30 @@ import styles from "./login.module.scss";
 
 import { loginUser } from "../../apis/users";
 import { toast } from "react-toastify";
+import fetchUser from "../../store/actions/user.actions";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Login Data:", formData);
-    if (formData.email === "" || formData.password === "") return;
+    try {
+      e.preventDefault();
+      console.log("Login Data:", formData);
+      if (formData.email === "" || formData.password === "") return;
 
-    const result = await loginUser(formData);
-    toast.success(result.data.result);
-    console.log({ result });
+      const result = await loginUser(formData);
+      toast.success(result.data.result);
+      dispatch(fetchUser());
+      navigate("/");
+    } catch (error) {
+      if (error.status === 404) {
+        toast.error(error.response.data.error);
+        navigate("/signup");
+      } else if (error.status === 401) toast.error(error.response.data.error);
+      else if (error.status === 400) toast.error(error.response.data.error);
+    }
   };
 
   return (

@@ -1,12 +1,20 @@
 import { Routes, Route } from "react-router";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+import NonAuthRoute from "./routes/NonAuthRoute";
 import AuthRoute from "./routes/AuthRoute";
 import Layout from "./layouts";
 import Pages from "./pages";
-import NonAuthRoute from "./routes/NonAuthRoute";
+import fetchUser from "./store/actions/user.actions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
