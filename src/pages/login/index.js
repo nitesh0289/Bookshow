@@ -1,19 +1,25 @@
-import { useNavigate, NavLink } from "react-router";
 import React, { useState } from "react";
+import { NavLink } from "react-router";
 
 import Button from "../../components/atoms/Button";
 import MarvelBG from "../../assets/hero.png";
 import Logo from "../../assets/logo.png";
 import styles from "./login.module.scss";
 
-const Login = () => {
-  const navigate = useNavigate();
+import { loginUser } from "../../apis/users";
+import { toast } from "react-toastify";
 
+const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
+    if (formData.email === "" || formData.password === "") return;
+
+    const result = await loginUser(formData);
+    toast.success(result.data.result);
+    console.log({ result });
   };
 
   return (
@@ -49,7 +55,7 @@ const Login = () => {
             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
           />
 
-          <Button text={"Login"} clickHandler={() => navigate("/")} />
+          <Button text={"Login"} />
 
           <p>
             Don't have an account? <NavLink to="/signup">Sign Up</NavLink>

@@ -9,7 +9,7 @@ function MyBookings() {
     <main className={styles.container}>
       <h1>My Bookings</h1>
       <section>
-        {!bookingsList.length ? (
+        {bookingsList.length ? (
           bookingsList.map((data, i) => {
             return <LandscapeCard key={i} {...data} type={"bookings"} />;
           })

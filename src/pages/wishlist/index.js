@@ -9,7 +9,7 @@ function Wishlist() {
     <main className={styles.container}>
       <h1>My Wishlist</h1>
       <section>
-        {!searchList.length ? (
+        {searchList.length ? (
           searchList.map((data, i) => {
             return <LandscapeCard key={i} {...data} type={"wishlist"} />;
           })
