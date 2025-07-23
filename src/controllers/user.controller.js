@@ -1,5 +1,7 @@
 const User = require("../models/user.model");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const { default: mongoose } = require("mongoose");
 
 async function createUser(req, res) {
   const userBody = req.body;
@@ -48,33 +50,66 @@ async function loginUser(req, res) {
 
     //Is Email Exists in DB
     const existingUser = await User.findOne({ email });
-    if (!existingUser) {
-      res.status(409).json({
+    if (!existingUser)
+      return res.status(404).json({
         success: false,
         error: "User is not registered!"
       });
-      return;
-    }
+
     const isMatched = await bcrypt.compare(password, existingUser.password); // true
-    // const isMatch  ed = existingUser.password === password;
-    if (!isMatched) {
-      res.status(401).json({
+
+    if (!isMatched)
+      return res.status(401).json({
         success: false,
         error: "Email or Password is wrong!"
       });
-      return;
-    }
 
-    res.status(200).json({
+    const payload = {
+      userId: existingUser._id.toString()
+    };
+    const Auth_Token = jwt.sign(payload, process.env.JWT_SECRET);
+    res.cookie("auth-token", Auth_Token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+      maxAge: 15 * 24 * 60 * 60 * 1000,
+      origin: "http://localhost:3000"
+    });
+    return res.status(200).json({
       success: true,
       result: "User Logged in Successfully!"
     });
   } catch (error) {
-    console.log({ error });
-    res.status(400).json({
+    return res.status(400).json({
       error: error.message
     });
   }
 }
 
-module.exports = { createUser, loginUser };
+async function getLoggedUser(req, res) {
+  const userid = req.token;
+
+  try {
+    if (!userid) throw Error("Not a logged in user!");
+    const userId = new mongoose.Types.ObjectId(userid); //converting string to ObjectId Type
+    const user = await User.findOne({ _id: userId });
+    return res.status(200).json({
+      success: true,
+      result: {
+        _id: user._id.toString(),
+        name: user.name,
+        email: user.email,
+        profileImage: user.profileImage,
+        lastLogin: user.lastLogin
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({
+      success: false,
+      error: "Something went wrong!"
+    });
+  }
+}
+
+module.exports = { createUser, loginUser, getLoggedUser };
