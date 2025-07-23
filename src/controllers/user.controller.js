@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const bcrypt = require("bcryptjs");
 
 async function createUser(req, res) {
   const userBody = req.body;
@@ -15,14 +16,25 @@ async function createUser(req, res) {
       return;
     }
 
+    const salt = bcrypt.genSaltSync(10);
+    const hashPassword = await bcrypt.hash(userBody.password, salt);
+    userBody.password = hashPassword;
+
     const user = await User.create(userBody);
-    if (user)
+    if (user) {
       res.status(201).json({
         success: true,
         result: "User registered successfully!"
       });
+      return;
+    }
+    res.status(500).json({
+      success: false,
+      result: "Something went wrong!"
+    });
   } catch (error) {
-    let errorMsg = error.message.split(":")[2].split(",")[0];
+    console.log({ error });
+    let errorMsg = error.message?.split(":")[2]?.split(",")[0];
     res.status(400).json({
       error: errorMsg
     });
@@ -41,9 +53,10 @@ async function loginUser(req, res) {
         success: false,
         error: "User is not registered!"
       });
+      return;
     }
-
-    const isMatched = existingUser.password === password;
+    const isMatched = await bcrypt.compare(password, existingUser.password); // true
+    // const isMatch  ed = existingUser.password === password;
     if (!isMatched) {
       res.status(401).json({
         success: false,
