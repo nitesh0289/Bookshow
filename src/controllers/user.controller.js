@@ -112,4 +112,24 @@ async function getLoggedUser(req, res) {
   }
 }
 
-module.exports = { createUser, loginUser, getLoggedUser };
+async function logoutUser(req, res) {
+  const userid = req.token;
+  try {
+    if (userid) {
+      res.cookie("auth-token", "", {
+        httpOnly: true,
+        secure: false,
+        sameSite: "strict",
+        maxAge: 0,
+        origin: "http://localhost:3000"
+      });
+      return res.status(200).json({ success: true, result: "Logout successfully!" });
+    } else {
+      return res.status(400).json({ success: false, result: "No user is logged in" });
+    }
+  } catch (error) {
+    return res.status(500).json({ success: false, result: "Something went wrong!" });
+  }
+}
+
+module.exports = { createUser, loginUser, getLoggedUser, logoutUser };
