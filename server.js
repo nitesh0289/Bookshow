@@ -22,7 +22,7 @@ app.use(logMiddleware);
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://bookshow-client-6dnu.onrender.com",
     credentials: true
   })
 );

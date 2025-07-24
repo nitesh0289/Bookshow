@@ -181,3 +181,5 @@ Timestamp=2025-07-24T08:11:59.849Z, URL: /api/movies/all?page=1&limit=10, method
 Timestamp=2025-07-24T08:11:59.896Z, URL: /api/movies/all?page=1&limit=10, method: GET 
 Timestamp=2025-07-24T08:12:05.978Z, URL: /api/users/logout, method: GET 
 Timestamp=2025-07-24T08:12:05.993Z, URL: /api/users/me, method: GET 
+Timestamp=2025-07-24T08:14:24.111Z, URL: /api/movies/all?page=1&limit=10, method: GET 
+Timestamp=2025-07-24T08:14:24.127Z, URL: /api/users/me, method: GET 
