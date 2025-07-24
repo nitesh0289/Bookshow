@@ -6,8 +6,9 @@
   border-radius: var(--border-radius);
 
   > img {
-    width: auto;
-    height: auto;
+    height: 180px;
+    object-position: top;
+    object-fit: cover;
   }
 
   > figcaption {

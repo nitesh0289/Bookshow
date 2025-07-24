@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
+import { toast } from "react-toastify";
 
+import fetchUser from "../../../store/actions/user.actions";
+import { logoutUser } from "../../../apis/users";
 import BrandLogo from "../../../assets/logo.png";
 import styles from "./navbar.module.scss";
 import Button from "../../atoms/Button";
@@ -13,9 +16,27 @@ function Navbar() {
   const searchRef = useRef("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleLogin = () => {
-    navigate("/login");
+  const handleLogin = async () => {
+    try {
+      if (user.email) {
+        const res = await logoutUser();
+        console.log({ res });
+        if (res.status === 200) {
+          toast.success("User logged out successfully!");
+          dispatch(fetchUser());
+        } else {
+          toast.error("Something went wrong!");
+        }
+        return;
+      } else {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log("Logout Error: ", { error });
+      toast.error("Something went wrong!");
+    }
   };
 
   const handleStyle = () => {
