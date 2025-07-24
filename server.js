@@ -15,6 +15,7 @@ app.use(cookieParser());
 //Local Modules
 const { logMiddleware } = require("./src/middlewares");
 const userRouter = require("./src/routers/user.route");
+const movieRouter = require("./src/routers/movies.route");
 
 //Middlewares
 app.use(logMiddleware);
@@ -31,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRouter);
-// app.use("/movies", moviesRouter);
+app.use("/api/movies", movieRouter);
 // app.use("/bookings", bookingRouter);
 // app.use("/reviews", reviewsRouter);
 
