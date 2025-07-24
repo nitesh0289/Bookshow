@@ -11,7 +11,7 @@ const fetchUser = () => async (dispatch) => {
     }
   } catch (error) {
     console.log({ error });
-    dispatch(userFailure(error.data.response.result));
+    dispatch(userFailure(error.data?.response?.result || error.message));
   }
 };
 

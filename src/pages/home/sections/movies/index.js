@@ -1,13 +1,27 @@
 import { useNavigate } from "react-router";
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useEffect } from "react";
 
 import Card from "../../../../components/molecules/card";
 import movies from "../../../../data/movies.json";
 import styles from "./movies.module.scss";
+import { getAllMovies } from "../../../../apis/movies";
 
 function Movies() {
   const navigate = useNavigate();
+
+  const fetchMovies = async () => {
+    try {
+      const response = await getAllMovies();
+      console.log({ response });
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   return (
     <section className={styles.container}>
